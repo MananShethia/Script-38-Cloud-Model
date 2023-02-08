@@ -1,0 +1,107 @@
+Precise identification/measurement of cloud coverage is a crucial step in the analysis of satellite imagery. For instance,
+clouds could occlude objects on the land and cause difficulty
+for many remote sensing applications including change detection, geophysical parameter retrieving, and object tracking
+
+Cloud coverage by itself might provide
+useful information about the climate parameters and natural
+disasters such as hurricanes and volcanic eruptions
+
+As
+a result, identification of the cloud regions in images is an
+important pre-processing step for many applications.
+
+
+
+
+In recent years, researchers have developed many cloud
+detection methods. These methods can be divided into three
+main categories: threshold-based [6, 7, 8, 9], handcrafted [10,
+11], and deep learning-based [12, 13] approaches
+
+Function of mask (Fmask) algorithm. Fmask basically consisted of a decision tree in which
+the potential cloud pixels were separated from non-cloud pixels based on multiple threshold functions
+
+*
+An improved version of Fmask was proposed in [8]. This method benefited from Cirrus band of Landsat 8 to increase the accuracy of
+the detected clouds and is currently utilized to produce cloud
+masks of the Landsat Level-1 data products [14]. Qui et al. in
+[9] integrated Digital Elevation Map (DEM) information into
+Fmask and improved its performance in mountainous areas.
+
+*
+Haze Optimized Transformation (HOT) [10] is among
+the most famous handcrafted algorithms for identification
+of clouds [11]. In this algorithm, Zhang et al. utilized the
+correlation between two spectral bands of Landsat images to
+distinguish thin clouds from clear regions.
+
+
+
+
+
+In recent years, deep learning-based methods have been
+proved to deliver good performance in many image processing applications. Researchers, in the remote sensing field,
+have also proposed such algorithms to address the problem
+of cloud detection
+
+ For instance, Xie et al. [12] utilized two
+Convolutional Neural Networks (CNNs) for classification of
+sub-regions in an image into thick cloud, thin cloud, or noncloud classes
+
+Many Fully Convolutional Neural Networks
+(FCNs) have been introduced for semantic segmentation of
+images. Most of these networks have an encoder-decoder architecture, which is inspired by U-Net 
+
+
+
+
+
+In this paper, we introduce a new Cloud detection Network (Cloud-Net) for end-to-end pixel-level labeling of the
+satellite images.
+
+We specifically designed convolution blocks
+of Cloud-Net to capture complicated semantic features of
+clouds in remote sensing images. Unlike Fmask and the
+method in [12], Cloud-Net is capable of learning both local
+and global features from the entire scene in an end-to-end
+manner
+
+It does not require any complicated pre-processing
+step such as super-pixel segmentation. In addition, unlike
+[13], Cloud-Net effectively utilizes the extracted features
+from its sophisticated convolution blocks to recover more
+accurate cloud masks.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+list and explain various semantic segmentation architecture use by deep learning model for satellite image
+
+Semantic segmentation is a computer vision task that involves assigning a class label to each pixel in an image. In the context of satellite imagery, semantic segmentation can be used to segment different land cover classes such as urban, agricultural, and forest areas. Here are some popular semantic segmentation architectures used by deep learning models for satellite images:
+
+U-Net: U-Net is a fully convolutional network that was originally developed for medical image segmentation. It consists of a contracting path to capture context and a symmetric expanding path that enables precise localization. U-Net is a popular choice for satellite image segmentation due to its ability to handle highly imbalanced datasets and maintain high spatial resolution.
+
+Fully Convolutional Network (FCN): FCN is a type of deep learning architecture that can be used for semantic segmentation. FCN replaces fully connected layers in a standard CNN with a convolutional layer that operates on the entire image, preserving spatial information. FCN is computationally efficient and can handle large images, making it a popular choice for satellite image segmentation.
+
+SegNet: SegNet is a deep encoder-decoder architecture that was developed for semantic segmentation. It consists of an encoder network that extracts features from the input image and a decoder network that upsamples the features to the original image resolution. SegNet is computationally efficient and can handle large images, making it a popular choice for satellite image segmentation.
+
+DeepLab v3+: DeepLab v3+ is a state-of-the-art semantic segmentation architecture that is based on the encoder-decoder framework. It uses atrous (dilated) convolutions and multi-scale context aggregation to capture both global and local context information. DeepLab v3+ is a popular choice for satellite image segmentation due to its high accuracy and efficiency.
+
+PSPNet (Pyramid Scene Parsing Network): PSPNet is a deep learning architecture that was developed for semantic segmentation. It uses a pyramid pooling module to aggregate context information at multiple scales, which allows the network to capture both local and global context information. PSPNet is a popular choice for satellite image segmentation due to its high accuracy and ability to handle large images.
+
+These are some of the popular semantic segmentation architectures used by deep learning models for satellite images. The best architecture to use will depend on the specific requirements and constraints of the satellite image segmentation task.
